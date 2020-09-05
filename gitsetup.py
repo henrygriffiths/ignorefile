@@ -10,7 +10,17 @@ specificallow = {'.gitignore': ['.git']}
 path = str(input('Enter path for script: '))
 if os.path.exists(path):
     #Ignorefiles to create with script
-    ignorefiles = {'.gitignore': open(path + '/.gitignore', "w"), '.dockerignore': open(path + '/.dockerignore', "w"), '.gcloudignore': open(path + '/.gcloudignore', "w")}
+    ignorefilelist = []
+    while True:
+        filename = str(input('Enter filenames (e.g. .dockerignore, .gitignore) one at a time, or enter "D" for done: '))
+        if filename in ['d', 'D']:
+            break
+        else:
+            ignorefilelist.append(filename)
+    
+    ignorefiles = {}
+    for f in ignorefilelist:
+        ignorefiles[f] = open(path + '/' + f, "w")
     
     folderlist = []
     filelist = []
