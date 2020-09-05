@@ -1,2 +1,2 @@
 # ignorefile
-Create custom ignorefiles based on current directory
+Create custom ignorefiles based on files and folders in current directory
