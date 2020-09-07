@@ -14,7 +14,10 @@ if os.path.exists(path):
     while True:
         filename = str(input('Enter filenames (e.g. .dockerignore, .gitignore) one at a time, or enter "D" for done: '))
         if filename in ['d', 'D']:
-            break
+            if len(ignorefilelist) == 0:
+                print('Please enter at least one filename')
+            else:
+                break
         else:
             ignorefilelist.append(filename)
     
